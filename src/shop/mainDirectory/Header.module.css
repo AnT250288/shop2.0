@@ -1,0 +1,29 @@
+.link {
+    text-decoration: none;
+    color: green;
+    margin: 10px;
+}
+
+.link:hover {
+    color: greenyellow;
+}
+
+.active {
+    color: orange;
+}
+
+.block {
+    width: 21px;
+    height: 21px;
+    margin: 10px;
+}
+
+.header {
+    height: 80px;
+    background: lavender;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
