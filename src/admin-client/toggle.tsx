@@ -5,7 +5,6 @@ type ToggleType = {
     onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-
 const InputWrapper = styled.label`
   position: relative;
 `

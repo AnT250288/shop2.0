@@ -9,12 +9,16 @@ function Header() {
             <div className={s.header}>
                 <NavLink to={PATH.HOME}
                          className={({isActive}) => isActive ? s.active : s.link}>HOME</NavLink>
-                <NavLink to={PATH.ADMIN}
+        {/*        <NavLink to={PATH.ADMIN}
                          className={({isActive}) => isActive ? s.active : s.link}>Admin</NavLink>
                 <NavLink to={PATH.CLIENT}
-                         className={({isActive}) => isActive ? s.active : s.link}>Client</NavLink>
+                         className={({isActive}) => isActive ? s.active : s.link}>Client</NavLink>*/}
                 <NavLink to={PATH.PROFILE}
                          className={({isActive}) => isActive ? s.active : s.link}>Profile</NavLink>
+
+                <NavLink to={PATH.SHOP}
+                         className={({isActive}) => isActive ? s.active : s.link}>Shop</NavLink>
+
                 <div className={s.block}/>
             </div>
         </div>

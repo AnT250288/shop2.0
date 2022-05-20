@@ -11,6 +11,8 @@ import {
     setIsLoadingType,
     setProductsType
 } from "../shop/actions/shop-actions";
+import {addProductToCartType, removeProductFromCartType} from "../shop/user/client/shoppingCart/cartActions";
+import {cartReducer} from "../shop/user/client/shoppingCart/cartReducers";
 
 export type ActionsType =
     setUserType
@@ -23,10 +25,13 @@ export type ActionsType =
     | setErrorType
     | createNewProductType
     | createNewUserType
+    | addProductToCartType
+    | removeProductFromCartType
 
 export const rootReducer = combineReducers({
     adminStore: adminReducer,
     userStore: userReducer,
+   /* cartStore: cartReducer*/
 })
 export type AppStateType = ReturnType<typeof rootReducer>
 

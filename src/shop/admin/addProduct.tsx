@@ -5,10 +5,10 @@ import p from './admin.module.css'
 
 
 export const AddProduct = (props: any) => {
-    const [title, setTitle] = useState('')
-    const [desc, setDisc] = useState('')
-    const [photo, setPhoto] = useState('')
-    const [price, setPrice] = useState('')
+    const [title, setTitle] = useState<string>('')
+    const [desc, setDisc] = useState<string>('')
+    const [photo, setPhoto] = useState<string>('')
+    const [price, setPrice] = useState<string>('')
 
     const addTitle = (event: ChangeEvent<HTMLInputElement>) => {
         const newTitle = event.target.value

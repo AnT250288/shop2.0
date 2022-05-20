@@ -27,7 +27,6 @@ export const adminReducer = (state: ShopStateType = initialState, action: Action
     switch (action.type) {
 
         case "IS-LOADING":
-            console.log(action.isLoading)
             return {
                 ...state,
                 isLoading: action.isLoading
