@@ -19,6 +19,9 @@ function Header() {
                 <NavLink to={PATH.SHOP}
                          className={({isActive}) => isActive ? s.active : s.link}>Shop</NavLink>
 
+                <NavLink to={PATH.CART}
+                         className={({isActive}) => isActive ? s.active : s.link}>Cart</NavLink>
+
                 <div className={s.block}/>
             </div>
         </div>

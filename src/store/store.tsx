@@ -11,7 +11,11 @@ import {
     setIsLoadingType,
     setProductsType
 } from "../shop/actions/shop-actions";
-import {addProductToCartType, removeProductFromCartType} from "../shop/user/client/shoppingCart/cartActions";
+import {
+    addOneItemToCartType,
+    addProductToCartType, removeOneItemACType,
+    removeProductFromCartType
+} from "../shop/user/client/shoppingCart/cartActions";
 import {cartReducer} from "../shop/user/client/shoppingCart/cartReducers";
 
 export type ActionsType =
@@ -27,11 +31,13 @@ export type ActionsType =
     | createNewUserType
     | addProductToCartType
     | removeProductFromCartType
+    | addOneItemToCartType
+    | removeOneItemACType
 
 export const rootReducer = combineReducers({
     adminStore: adminReducer,
     userStore: userReducer,
-   /* cartStore: cartReducer*/
+    cartStore: cartReducer
 })
 export type AppStateType = ReturnType<typeof rootReducer>
 

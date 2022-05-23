@@ -6,6 +6,7 @@ export type ItemShopType = {
     title: string
     price: number
     image: string
+    counter: number
 }
 
 export type ShopStateType = {

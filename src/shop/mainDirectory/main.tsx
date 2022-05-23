@@ -5,6 +5,7 @@ import {Client} from "../user/client/client";
 import {Profile} from "../user/profile/profile";
 import {WithAuthRedirect} from "../hok/withAuthRedirect";
 import {Switcher} from "../switcer/Switcher";
+import {ShoppingCart} from "../user/client/shoppingCart/ShoppingCart";
 
 
 export const PATH = {
@@ -13,6 +14,7 @@ export const PATH = {
     CLIENT: '/client',
     PROFILE: '/profile',
     SHOP: '/shop',
+    CART: '/cart'
 }
 
 function AppRoutes() {
@@ -24,6 +26,7 @@ function AppRoutes() {
                 <Route path={PATH.ADMIN} element={<Admin/>}/>
                 <Route path={PATH.CLIENT} element={<Client/>}/>
                 <Route path={PATH.SHOP} element={<Switcher/>}/>
+                <Route path={PATH.CART} element={<ShoppingCart/>}/>
                 {/* <Route path={PATH.PROFILE} element={<Profile/>}/>*/}
                 <Route path={PATH.PROFILE} element={
                     <WithAuthRedirect>
