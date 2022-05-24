@@ -27,7 +27,6 @@ function AppRoutes() {
                 <Route path={PATH.CLIENT} element={<Client/>}/>
                 <Route path={PATH.SHOP} element={<Switcher/>}/>
                 <Route path={PATH.CART} element={<ShoppingCart/>}/>
-                {/* <Route path={PATH.PROFILE} element={<Profile/>}/>*/}
                 <Route path={PATH.PROFILE} element={
                     <WithAuthRedirect>
                         <Profile/>

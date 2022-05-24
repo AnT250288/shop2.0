@@ -5,9 +5,8 @@ import {getAllProducts, searchProductAC} from "../../actions/shop-actions";
 import {useState} from "react";
 import {Preloader} from "../../../components/preloader/preloader";
 import {AppStateType} from "../../../store/store";
-import {ItemShopType, ShopStateType} from "../../admin/admin_reducers";
+import {ShopStateType} from "../../admin/admin_reducers";
 import {addProductToCart} from "./shoppingCart/cartActions";
-
 
 
 export const Client = React.memo(() => {
@@ -24,47 +23,19 @@ export const Client = React.memo(() => {
         setVisible(false)
     }
 
-    const [arrItems, setArrItems] = useState<Array<ItemShopType>>([]);
-
-    const append = (products: ItemShopType, counter: number = 1) => {
-        const itemIndex = arrItems.findIndex(value => value.id === products.id);
-        if (itemIndex < 0) {
-            const newItem = {
-                ...products,
-                counter: counter
-            };
-            setArrItems([...arrItems, newItem]);
-        } else {
-            const newItem = {
-                ...arrItems[itemIndex],
-                counter: arrItems[itemIndex].counter + counter
-            };
-            const newCart = arrItems.slice();
-            newCart.splice(itemIndex, 1, newItem);
-            setArrItems(newCart);
-        }
-        console.log(arrItems)
-    };
-
     const addItem = (arrItems: any, counter: number = 1) => {
         dispatch(addProductToCart(arrItems, counter))
     }
 
     return (
         <>
-
-            <div>
-
-            </div>
             {visible
                 ? <button onClick={getProductsHandler}>Get products</button>
                 : <input className={s.span} placeholder={'Search'} type={'text'} onChange={searchProduct}/>}
+
             {products.isLoading
                 ? <Preloader/>
                 : null}
-
-
-
 
             {products.newShop.map(pr => (
                 <div key={pr.id} className={s.prod}>

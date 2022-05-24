@@ -4,7 +4,7 @@ import {ShopStateType} from "../admin/admin_reducers";
 
 export type setProductsType = {
     type: "SET-PRODUCTS"
-    data: object
+    data: ShopStateType
 }
 
 export type removeProductACType = {
@@ -31,7 +31,7 @@ export type setIsLoadingType = {
 
 export type createNewProductType = {
     type: "CREATE-NEW-PRODUCT"
-    state: object
+    state: ShopStateType
 }
 
 export type setErrorType = {

@@ -13,12 +13,14 @@ export type removeProductFromCartType = {
 
 export type addOneItemToCartType = {
     type: "ADD-ONE-ITEM-TO-CART"
+    id: string
     data: ItemShopType
     counter: number
 }
 
 export type removeOneItemACType = {
     type: "REMOVE-ONE-ITEM-TO-CART"
+    id: string
     data: ItemShopType
     counter: number
 }
@@ -37,18 +39,17 @@ export const removeProductFromCart = (id: string) => {
     }
 }
 
-export const removeOneItemAC = (data: ItemShopType, counter: number) => {
+export const removeOneItemAC = (id: string, counter: number) => {
     return {
         type: "REMOVE-ONE-ITEM-TO-CART",
-        data, counter
+        id, counter
     }
 }
 
-
-export const addOneItemToCart = (data: ItemShopType, counter: number) => {
+export const addOneItemToCartAC = (id: string, counter: number) => {
     return {
         type: "ADD-ONE-ITEM-TO-CART",
-        data, counter
+        id, counter
     }
 }
 

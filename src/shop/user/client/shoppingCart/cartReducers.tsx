@@ -3,12 +3,12 @@ import {ItemShopType} from "../../../admin/admin_reducers";
 
 export type CardStateType = {
     newCard: Array<ItemShopType>
-   // counter: number
+    counter: number
 }
 
 const InitialStateForCard: CardStateType = {
     newCard: [],
-    //counter: 0,
+    counter: 0,
 }
 
 export const cartReducer = (state: CardStateType = InitialStateForCard, action: ActionsType) => {
@@ -36,17 +36,38 @@ export const cartReducer = (state: CardStateType = InitialStateForCard, action: 
                 ...state,
                 newCard: newProd,
             }
+
         case "ADD-ONE-ITEM-TO-CART":
-            const Index = state.newCard.findIndex(value => value.id === action.data.id)
-            return {
-                ...state.newCard,
+            const Index = state.newCard.findIndex(value => value.id === action.id);
+            const newItem = {
+                ...state.newCard[Index],
                 counter: state.newCard[Index].counter + action.counter
+            }
+            let newProdAdded = [...state.newCard];
+            newProdAdded.splice(Index, 1, newItem);
+            return {
+                ...state,
+                newCard: newProdAdded
             }
 
         case "REMOVE-ONE-ITEM-TO-CART":
-            return {
-                ...state,
-                counter:  action.counter
+            const IndexVal = state.newCard.findIndex(value => value.id === action.id);
+            const newItemForRemove = {
+                ...state.newCard[IndexVal],
+                counter: state.newCard[IndexVal].counter + action.counter
+            }
+            let newProdRemoved = [...state.newCard];
+            newProdRemoved.splice(IndexVal, 1, newItemForRemove);
+            if (state.newCard[IndexVal].counter === 0) {
+                return {
+                    ...state,
+                    newCard: state.newCard.filter(item => item.id !== action.id)
+                }
+            } else {
+                return {
+                    ...state,
+                    newCard: newProdRemoved
+                }
             }
 
         case "DELETE-ITEM-FROM-CART":
